@@ -1,37 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="tr">
 <head>
-    <meta charset="UTF-8">
-    <title>Sevgilim İçin</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sevgilim İçin ❤️</title>
 
-    <style>
-        body {
-            background: #ffe6f0;
-            font-family: Arial, sans-serif;
-            text-align: center;
-            padding: 50px;
-        }
+<style>
+body{
+    margin:0;
+    padding:0;
+    background:linear-gradient(135deg,#ffd6e7,#ffeef5);
+    font-family:Arial,sans-serif;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+    overflow:hidden;
+}
 
-        .box {
-            background: white;
-            padding: 25px;
-            border-radius: 15px;
-            max-width: 600px;
-            margin: auto;
-        }
+.box{
+    background:white;
+    padding:35px;
+    border-radius:20px;
+    max-width:600px;
+    text-align:center;
+    box-shadow:0 0 25px rgba(255,105,180,0.3);
+    z-index:2;
+}
 
-        h1 {
-            color: #ff4d88;
-        }
-    </style>
+h1{
+    color:#ff4d88;
+    font-size:38px;
+}
+
+p{
+    font-size:20px;
+    color:#444;
+}
+
+.rose{
+    font-size:35px;
+    animation:pulse 1.5s infinite;
+}
+
+@keyframes pulse{
+    0%{transform:scale(1);}
+    50%{transform:scale(1.2);}
+    100%{transform:scale(1);}
+}
+
+.heart{
+    position:absolute;
+    color:#ff6fa5;
+    font-size:20px;
+    animation:fall linear infinite;
+}
+
+@keyframes fall{
+    from{
+        transform:translateY(-100px);
+    }
+    to{
+        transform:translateY(110vh);
+    }
+}
+</style>
 </head>
 
 <body>
-    <div class="box">
-        <h1>🤍 Merhaba Sevgilim 🤍 </h1>
-        <p>Bu site sadece senin için.</p>
-        <p>Sen benim için çok özelsin.</p>
-        <p>🌹🌹🌹</p>
-    </div>
+
+<div class="box">
+    <h1>🧡 Merhaba Sevgilim 🧡</h1>
+
+    <p>Bu site sadece senin için hazırlandı.</p>
+
+    <p>
+        Seni düşündüğüm her an yüzümde bir tebessüm oluşuyor.
+        Hayatımda olduğun için çok mutluyum.
+    </p>
+
+    <div class="rose">🌹🌹🌹</div>
+</div>
+
+<script>
+for(let i=0;i<25;i++){
+    let heart=document.createElement("div");
+    heart.innerHTML="❤";
+    heart.className="heart";
+    heart.style.left=Math.random()*100+"vw";
+    heart.style.animationDuration=(3+Math.random()*5)+"s";
+    heart.style.opacity=Math.random();
+    document.body.appendChild(heart);
+}
+</script>
+
 </body>
 </html>
