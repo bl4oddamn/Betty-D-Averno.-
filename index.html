@@ -3,57 +3,70 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sevgilim İçin ❤️</title>
+<title>Sevgilim İçin</title>
 
 <style>
-body{
+*{
     margin:0;
     padding:0;
-    background:linear-gradient(135deg,#ffd6e7,#ffeef5);
-    font-family:Arial,sans-serif;
+    box-sizing:border-box;
+}
+
+body{
+    height:100vh;
+    overflow:hidden;
     display:flex;
     justify-content:center;
     align-items:center;
-    min-height:100vh;
-    overflow:hidden;
+    font-family:Arial, sans-serif;
+    background:url('https://images.unsplash.com/photo-1516589178581-6cd7833ae3b2?q=80&w=1200&auto=format&fit=crop') center/cover no-repeat;
 }
 
-.box{
-    background:white;
-    padding:35px;
-    border-radius:20px;
-    max-width:600px;
-    text-align:center;
-    box-shadow:0 0 25px rgba(255,105,180,0.3);
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+}
+
+.card{
+    position:relative;
     z-index:2;
+    width:90%;
+    max-width:700px;
+    padding:40px;
+    border:1px solid rgba(255,255,255,.15);
+    background:rgba(0,0,0,.55);
+    backdrop-filter:blur(6px);
+    border-radius:20px;
+    text-align:center;
+    color:white;
+    box-shadow:0 0 30px rgba(0,0,0,.5);
 }
 
 h1{
-    color:#ff4d88;
-    font-size:38px;
+    font-size:42px;
+    margin-bottom:25px;
+    letter-spacing:2px;
 }
 
-p{
+.text{
     font-size:20px;
-    color:#444;
+    line-height:1.8;
+    color:#f2f2f2;
 }
 
 .rose{
-    font-size:35px;
-    animation:pulse 1.5s infinite;
+    font-size:34px;
+    margin-top:25px;
+    letter-spacing:10px;
 }
 
-@keyframes pulse{
-    0%{transform:scale(1);}
-    50%{transform:scale(1.2);}
-    100%{transform:scale(1);}
-}
-
-.heart{
+.falling{
     position:absolute;
-    color:#ff6fa5;
-    font-size:20px;
+    color:white;
     animation:fall linear infinite;
+    opacity:.7;
 }
 
 @keyframes fall{
@@ -69,28 +82,38 @@ p{
 
 <body>
 
-<div class="box">
-    <h1>🧡 Merhaba Sevgilim 🧡</h1>
+<div class="card">
+    <h1>🤍 Sevgilim 🤍</h1>
 
-    <p>Bu site sadece senin için hazırlandı.</p>
+    <div class="text">
+        Seni sevmek benim seçimim değil, karakterim oldu.<br><br>
 
-    <p>
-        Seni düşündüğüm her an yüzümde bir tebessüm oluşuyor.
-        Hayatımda olduğun için çok mutluyum.
-    </p>
+        Herkes gelir geçer, bazı insanlar unutulur.<br>
+        Ama sen bende iz bırakmadın;<br>
+        bende yerini aldın.<br><br>
 
-    <div class="rose">🌹🌹🌹</div>
+        Bazen sadece adını düşünmem bile yetiyor.<br>
+        Çünkü sen, kalabalığın içindeki tek kişisin.<br><br>
+
+        Yanımda ol ya da olma,<br>
+        ben seni aynı ciddiyetle sevmeye devam ederim.<br><br>
+
+        Bu dünyada kimseye ait olmadım.<br>
+        Ama sana karşı hissettiklerim başka.
+    </div>
+
+    <div class="rose">🌹 🤍 🌹 🤍 🌹</div>
 </div>
 
 <script>
 for(let i=0;i<25;i++){
-    let heart=document.createElement("div");
-    heart.innerHTML="❤";
-    heart.className="heart";
-    heart.style.left=Math.random()*100+"vw";
-    heart.style.animationDuration=(3+Math.random()*5)+"s";
-    heart.style.opacity=Math.random();
-    document.body.appendChild(heart);
+    let e=document.createElement("div");
+    e.className="falling";
+    e.innerHTML=Math.random()>0.5 ? "🌹" : "🤍";
+    e.style.left=Math.random()*100+"vw";
+    e.style.fontSize=(18+Math.random()*18)+"px";
+    e.style.animationDuration=(5+Math.random()*8)+"s";
+    document.body.appendChild(e);
 }
 </script>
 
